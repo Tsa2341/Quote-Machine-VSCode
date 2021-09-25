@@ -1,0 +1,11 @@
+$bg : var(--bg);
+#div-app{
+    background-color : $bg;
+    transition : all 2s ease-out;
+    margin: 0;
+    padding: 0;
+}
+
+:export {
+    bg : $bg;
+}

@@ -1,5 +1,5 @@
 import { randomNumGen } from './helperFunctions';
-import './vendor/css/App.css';
+import './vendor/css/App.scss';
 import React from 'react';
 
 
@@ -8,6 +8,7 @@ class App extends React.Component {
         super(props);
         this.state = {
             num : 0,
+            colorNum: 0,
         }
         this.randomNumReloader = this.randomNumReloader.bind(this);
     }
@@ -16,6 +17,7 @@ class App extends React.Component {
     randomNumReloader = () => {
             this.setState({
                 num : randomNumGen(this.props.quoteObjects.length),
+                colorNum : randomNumGen(this.props.quoteColors.length),
             });
         };
 
@@ -24,6 +26,8 @@ class App extends React.Component {
     }
     
     render() {
+        const root = document.documentElement;
+        root.style.setProperty("--bg",this.props.quoteColors[this.state.colorNum]);
         return ( 
             <div id="div-app" className="App">
                 <div id="quote-box">
