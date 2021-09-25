@@ -1,13 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import AppWrapper from './redux/AppWrapper';
+import './vendor/css/index.css';
+import reportWebVitals from './vendor/test/reportWebVitals';
 
 ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
+  <AppWrapper />,
   document.getElementById('root')
 );
 

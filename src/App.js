@@ -1,25 +1,42 @@
-import logo from './logo.svg';
-import './App.css';
+import { randomNumGen } from './helperFunctions';
+import './vendor/css/App.css';
+import React from 'react';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+
+class App extends React.Component {
+    constructor(props){
+        super(props);
+        this.state = {
+            num : 0,
+        }
+        this.randomNumReloader = this.randomNumReloader.bind(this);
+    }
+
+
+    randomNumReloader = () => {
+            this.setState({
+                num : randomNumGen(this.props.quoteObjects.length),
+            });
+        };
+
+    componentDidMount() {
+        this.randomNumReloader();
+    }
+    
+    render() {
+        return ( 
+            <div id="div-app" className="App">
+                <div id="quote-box">
+                    <p id="text">{this.props.quoteObjects[this.state.num].quoteText}</p>
+                    <p id="author">{this.props.quoteObjects[this.state.num].quoteAuthor}</p>
+                    <a id="tweet-quote" href="https://twitter.com/intent/tweet">
+                        <i className="fab fa-twitter-square" />
+                    </a>
+                    <button id="new-quote" onClick={this.randomNumReloader}>New-quote</button>
+                </div>
+            </div>
+        );
+    }
 }
-
+ 
 export default App;
