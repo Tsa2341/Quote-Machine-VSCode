@@ -31,10 +31,10 @@ class App extends React.Component {
         return ( 
             <div id="div-app" className="App">
                 <div id="quote-box">
-                    <p id="text">{this.props.quoteObjects[this.state.num].quoteText}</p>
+                    <p id="text"><i className="fa fa-quote-left" ></i>{this.props.quoteObjects[this.state.num].quoteText}</p>
                     <p id="author">{this.props.quoteObjects[this.state.num].quoteAuthor}</p>
                     <a id="tweet-quote" href="https://twitter.com/intent/tweet">
-                        <i className="fab fa-twitter-square" />
+                        <i className="fab fa-twitter-square fa-3x" />
                     </a>
                     <button id="new-quote" onClick={this.randomNumReloader}>New-quote</button>
                 </div>
