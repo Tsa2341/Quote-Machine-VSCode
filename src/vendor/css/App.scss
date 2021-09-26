@@ -1,6 +1,7 @@
 $bg : var(--bg);
 #div-app{
     display: flex;
+    flex-flow: row wrap;
     background-color : $bg;
     transition : all 2s ease-out;
     margin: 0;
@@ -12,6 +13,7 @@ $bg : var(--bg);
 }
 #quote-box{
     display: flex;
+    position: relative;
     flex-flow: row wrap;
     justify-content: space-between;
     background-color: whitesmoke;
@@ -63,6 +65,13 @@ a,i{
     border-radius: 3px;
     width: 100px;
     padding-right: 10px;
+}
+#tsa{
+    position: absolute;
+    text-align: center;
+    color: white;
+    bottom: -30px;
+    left: 220px;
 }
 
 :export {
